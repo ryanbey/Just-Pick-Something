@@ -31,9 +31,47 @@ body {
 ////
 //  Mobile First
 //////
-// body {
-    
-// }
+body {
+    padding: 9em 0;
+}
+
+.home-heading {
+    font-size: 4em;
+}
+
+.menu {
+    &-button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &-icon {
+        display: none;
+    }
+
+    &-link, &-link:visited {
+        color: white;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    &-button {
+        background-color: $darkred;
+        padding: 1em 3em;
+        margin: .5em;
+        width: 9rem;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &-text {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+}
 
 ////
 //  Desktop
@@ -47,24 +85,19 @@ body {
     }
 
     .home-heading {
+        font-size: 5em;
         margin-top: 0;
     }
 
     .menu {
         &-button-container {
-            display: flex;
+            flex-direction: row;
             justify-content: center;
         }
 
         &-button {
-            background-color: $darkred;
             padding: 1em;
             margin: 0 1em;
-            width: 9rem;
-            border-radius: 1rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             transition: transform 150ms; /* zoom */
             
             &:hover {
@@ -74,6 +107,7 @@ body {
         }
 
         &-icon {
+            display: block;
             width: 100px;
 
             &-bg {
@@ -85,13 +119,8 @@ body {
 
         &-text {
             font-size: 1.5em;
+            margin-top: 1em;
             margin-bottom: 0;
-        }
-
-        &-link, &-link:visited {
-            color: white;
-            text-decoration: none;
-            text-align: center;
         }
     }
 
