@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: #db0000;
+  color: white;
+}
+
+.home-heading {
+  font-family: "Kaushan Script";
+  font-size: 5em;
+  text-align: center;
+}
+
+@media (min-width: 50rem) {
+  html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .home-heading {
+    margin-top: 0;
+  }
+
+  .menu-button-container {
+    display: flex;
+    justify-content: center;
+  }
+  .menu-button {
+    background-color: #971919;
+    padding: 1em;
+    margin: 0 1em;
+    width: 9rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 150ms;
+    /* zoom */
+  }
+  .menu-button:hover {
+    transform: scale(1.05);
+    /* zoom */
+    cursor: pointer;
+  }
+  .menu-icon {
+    width: 100px;
+  }
+  .menu-icon-bg {
+    background-color: #db0000;
+    border-radius: 50%;
+    padding: 0.9rem;
+  }
+  .menu-text {
+    font-size: 1.5em;
+    margin-bottom: 0;
+  }
+  .menu-link, .menu-link:visited {
+    color: white;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  footer {
+    position: relative;
+    top: 15rem;
+  }
+  footer > .footer-text {
+    text-align: center;
+    opacity: 50%;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+// Color Palette
+$black: black;
+$darkred: #971919;
+$red: #db0000;
+$yellow: #ffbe55;
+$offw: #f5eded;
+$white: white;
+
+// Variables
+$desktop-br: 50rem;
+
+////
+//  General
+//////
+body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    background-color: $red;
+    color: white;
+}
+
+.home-heading {
+    font-family: "Kaushan Script";
+    font-size: 5em;
+    text-align: center;
+}
+
+////
+//  Mobile First
+//////
+// body {
+    
+// }
+
+////
+//  Desktop
+//////
+@media (min-width: $desktop-br) {
+    html {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home-heading {
+        margin-top: 0;
+    }
+
+    .menu {
+        &-button-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        &-button {
+            background-color: $darkred;
+            padding: 1em;
+            margin: 0 1em;
+            width: 9rem;
+            border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 150ms; /* zoom */
+            
+            &:hover {
+                transform: scale(1.05); /* zoom */
+                cursor: pointer;
+            }
+        }
+
+        &-icon {
+            width: 100px;
+
+            &-bg {
+                background-color: $red;
+                border-radius: 50%;
+                padding: .9rem;
+            }
+        }
+
+        &-text {
+            font-size: 1.5em;
+            margin-bottom: 0;
+        }
+
+        &-link, &-link:visited {
+            color: white;
+            text-decoration: none;
+            text-align: center;
+        }
+    }
+
+    // Make this sticky later
+    footer {
+        position: relative;
+        top: 15rem;
+
+        & > .footer-text {
+            text-align: center;
+            opacity: 50%;
+        }
+    }
+}
