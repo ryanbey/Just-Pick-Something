@@ -1,10 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
+  background-color: #db0000;
   margin: 0;
   font-family: "Roboto", sans-serif;
-  background-color: #db0000;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
 }
 
 .home-heading {
@@ -13,11 +22,15 @@ body {
   text-align: center;
 }
 
-html {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  opacity: 50%;
+  font-size: 0.75rem;
 }
 
 .home-heading {
@@ -105,15 +118,6 @@ html {
     font-size: 1.5em;
     margin-top: 1em;
     margin-bottom: 0;
-  }
-
-  footer {
-    position: relative;
-    top: 15rem;
-  }
-  footer > .footer-text {
-    text-align: center;
-    opacity: 50%;
   }
 }
 
