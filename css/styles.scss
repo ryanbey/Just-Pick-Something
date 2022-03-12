@@ -11,7 +11,7 @@ $offw: #f5eded;
 $white: white;
 
 // Variables
-$desktop-br: 50rem;
+$desktop-br: 45rem;
 
 ////
 //  General
@@ -32,11 +32,15 @@ body {
 ////
 //  Mobile First
 //////
-body {
-    padding: 9em 0;
+html {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .home-heading {
+    margin-top: 0;
     font-size: 4em;
 }
 
@@ -48,28 +52,35 @@ body {
     }
 
     &-icon {
-        display: none;
+        width: 35px;
+
+        &-bg {
+            background-color: $red;
+            border-radius: 50%;
+            padding: .6rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
-    &-link, &-link:visited {
+    &-button {
+        background-color: $darkred;
+        padding: .8rem;
+        margin: .5em;
+        width: 15rem;
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
         color: white;
         text-decoration: none;
         text-align: center;
     }
 
-    &-button {
-        background-color: $darkred;
-        padding: 1em 3em;
-        margin: .5em;
-        width: 9rem;
-        border-radius: 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
     &-text {
+        width: 100%;
         font-size: 1.5rem;
+        white-space: nowrap;
         margin: 0;
     }
 }
@@ -97,9 +108,12 @@ body {
         }
 
         &-button {
+            width: 9rem;
             padding: 1em;
             margin: 0 1em;
             transition: transform 150ms; /* zoom */
+            display: flex;
+            flex-direction: column;
             
             &:hover {
                 transform: scale(1.05); /* zoom */
@@ -108,13 +122,14 @@ body {
         }
 
         &-icon {
-            display: block;
-            width: 100px;
+            width: 80px;
 
             &-bg {
+                width: 100px;
+                height: 100px;
                 background-color: $red;
                 border-radius: 50%;
-                padding: .9rem;
+                padding: 1rem;
             }
         }
 

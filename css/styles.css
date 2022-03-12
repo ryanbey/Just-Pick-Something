@@ -13,11 +13,15 @@ body {
   text-align: center;
 }
 
-body {
-  padding: 9em 0;
+html {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .home-heading {
+  margin-top: 0;
   font-size: 4em;
 }
 
@@ -27,29 +31,36 @@ body {
   align-items: center;
 }
 .menu-icon {
-  display: none;
+  width: 35px;
 }
-.menu-link, .menu-link:visited {
+.menu-icon-bg {
+  background-color: #db0000;
+  border-radius: 50%;
+  padding: 0.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-button {
+  background-color: #971919;
+  padding: 0.8rem;
+  margin: 0.5em;
+  width: 15rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
   color: white;
   text-decoration: none;
   text-align: center;
 }
-.menu-button {
-  background-color: #971919;
-  padding: 1em 3em;
-  margin: 0.5em;
-  width: 9rem;
-  border-radius: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 .menu-text {
+  width: 100%;
   font-size: 1.5rem;
+  white-space: nowrap;
   margin: 0;
 }
 
-@media (min-width: 50rem) {
+@media (min-width: 45rem) {
   html {
     height: 100%;
     display: flex;
@@ -67,10 +78,13 @@ body {
     justify-content: center;
   }
   .menu-button {
+    width: 9rem;
     padding: 1em;
     margin: 0 1em;
     transition: transform 150ms;
     /* zoom */
+    display: flex;
+    flex-direction: column;
   }
   .menu-button:hover {
     transform: scale(1.05);
@@ -78,13 +92,14 @@ body {
     cursor: pointer;
   }
   .menu-icon {
-    display: block;
-    width: 100px;
+    width: 80px;
   }
   .menu-icon-bg {
+    width: 100px;
+    height: 100px;
     background-color: #db0000;
     border-radius: 50%;
-    padding: 0.9rem;
+    padding: 1rem;
   }
   .menu-text {
     font-size: 1.5em;
