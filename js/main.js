@@ -1,4 +1,3 @@
-import { getJSON } from "./utils.js";
 import { buildMainMenu } from "./renderer.js";
 
 const jsonURL = '../json/brackets.json';
