@@ -1,0 +1,58 @@
+{
+    "brackets": [
+        {
+            "name": "Fast Food",
+            "link": "fast-food.html",
+            "iconURL": "../icons/icon-fastfood.png",
+            "count": 8,
+            "list": [
+                {"name": "McDonald's"},
+                {"name": "Taco Bell"},
+                {"name": "Chick-Fil-A"},
+                {"name": "Wendy's"},
+                {"name": "Little Caesars"},
+                {"name": "Subway"},
+                {"name": "Cafe Rio"},
+                {"name": "Panda Express"}
+            ]
+        },
+    
+        {
+            "name": "Movies",
+            "link": "movies.html",
+            "iconURL": "../icons/icon-movies.png",
+            "count": 2,
+            "list": [
+                {
+                    "name": "starwars",
+                    "count": 6,
+                    "list": [
+                        {"name": "Phantom Menace"},
+                        {"name": "Attack of the Clones"},
+                        {"name": "Revenge of the Sith"},
+                        {"name": "A New Hope"},
+                        {"name": "The Empire Strikes Back"},
+                        {"name": "Return of the Jedi"}
+                    ]
+                }
+            ]
+        },
+
+        {
+            "name": "Dates",
+            "link": "dates.html",
+            "iconURL": "../icons/icon-dates.png",
+            "count": 8,
+            "list": [
+                {"name": "Dinner"},
+                {"name": "Movie"},
+                {"name": "Picnic"},
+                {"name": "Board game"},
+                {"name": "Thrift store"},
+                {"name": "Video game"},
+                {"name": "Mall"},
+                {"name": "Bowling"}
+            ]
+        }
+    ]
+}
