@@ -34,6 +34,7 @@ export function buildMainMenu(jsonURL) {
     });
 }
 
+// Builds bracket on the page
 export function buildBracket(jsonURL) {
     getJSON(jsonURL).then(data => {
         
