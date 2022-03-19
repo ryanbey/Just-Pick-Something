@@ -34,6 +34,13 @@ export function buildMainMenu(jsonURL) {
     });
 }
 
+// Gets all the entries from a categorty and creates the matchups
+export function buildMatchups(jsonURL) {
+    getJSON(jsonURL).then(data => {
+        
+    });
+}
+
 // Builds bracket on the page
 export function buildBracket(jsonURL) {
     getJSON(jsonURL).then(data => {

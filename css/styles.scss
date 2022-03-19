@@ -12,6 +12,7 @@ $white: white;
 
 // Variables
 $desktop-br: 45rem;
+$border-radius: 1rem;
 
 ////
 //  General
@@ -29,12 +30,15 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-transform: capitalize;
 }
 
-.home-heading {
+.subpage-body {
+    align-items: start;
+}
+
+.home-heading,
+.subpage-heading {
     font-family: "Kaushan Script";
-    font-size: 5em;
     text-align: center;
 }
 
@@ -57,14 +61,20 @@ footer {
     font-size: 4em;
 }
 
+.subpage-heading {
+    font-size: 2.5em;
+}
+
+.subpage-content {
+    text-align: center;
+}
+
 .menu {
     display: flex;
     flex-direction: column;
     align-items: center;
-
     &-icon {
         width: 35px;
-
         &-bg {
             background-color: $red;
             border-radius: 50%;
@@ -74,26 +84,64 @@ footer {
             align-items: center;
         }
     }
-
     &-button {
         background-color: $darkred;
         padding: .8rem;
         margin: .5em;
         width: 15rem;
-        border-radius: 1rem;
+        border-radius: $border-radius;
         display: flex;
         align-items: center;
         color: white;
         text-decoration: none;
         text-align: center;
     }
-
     &-text {
         width: 100%;
         font-size: 1.5rem;
         white-space: nowrap;
         margin: 0;
     }
+}
+
+.matchup {
+    background-color: $darkred;
+    border-radius: $border-radius;
+    margin-bottom: 2em;
+    padding: 1rem;
+    text-align: center;
+}
+
+.radio-item {
+    background-color: $red;
+    padding: 1em;
+    border-radius: $border-radius;
+    & > label {
+        font-size: 1.2em;
+        padding: 1em 5em;
+        transition: 200ms ease;
+        & > input {
+            // display: none;
+        }
+    }
+}
+
+.selected-choice {
+    background-color: $white;
+    color: $darkred;
+    animation: button-push 200ms linear;
+}
+
+@keyframes button-push {
+    0% { transform: scale(1); }
+    30% { transform: scale(.95); }
+    100% {transform: scale(1); }
+}
+
+.or {
+    font-family: "Kaushan Script", sans-serif;
+    font-size: 2em;
+    margin: .25em;
 }
 
 ////
@@ -123,7 +171,6 @@ footer {
             transition: transform 150ms; /* zoom */
             display: flex;
             flex-direction: column;
-            
             &:hover {
                 transform: scale(1.05); /* zoom */
                 cursor: pointer;
@@ -132,7 +179,6 @@ footer {
 
         &-icon {
             width: 80px;
-
             &-bg {
                 width: 100px;
                 height: 100px;
@@ -141,7 +187,6 @@ footer {
                 padding: 1rem;
             }
         }
-
         &-text {
             font-size: 1.5em;
             margin-top: 1em;
