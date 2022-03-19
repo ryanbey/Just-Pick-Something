@@ -3,7 +3,7 @@
         {
             "name": "Fast Food",
             "link": "fast-food.html",
-            "iconURL": "../icons/icon-fastfood.png",
+            "iconURL": "https://raw.githubusercontent.com/ryanbey/just-pick-something/main/icons/icon-fastfood.png",
             "count": 8,
             "list": [
                 {"name": "McDonald's"},
@@ -20,7 +20,7 @@
         {
             "name": "Movies",
             "link": "movies.html",
-            "iconURL": "../icons/icon-movies.png",
+            "iconURL": "https://raw.githubusercontent.com/ryanbey/just-pick-something/main/icons/icon-movies.png",
             "count": 2,
             "list": [
                 {
@@ -41,7 +41,7 @@
         {
             "name": "Dates",
             "link": "dates.html",
-            "iconURL": "../icons/icon-dates.png",
+            "iconURL": "https://raw.githubusercontent.com/ryanbey/just-pick-something/main/icons/icon-dates.png",
             "count": 8,
             "list": [
                 {"name": "Dinner"},
