@@ -19,10 +19,23 @@ body {
   align-items: start;
 }
 
-.home-heading,
-.subpage-heading {
+.heading-home,
+.heading-subpage {
   font-family: "Kaushan Script";
   text-align: center;
+}
+
+.heading-home, .heading-subpage {
+  font-family: "Kaushan Script";
+  text-align: center;
+}
+.heading-home {
+  margin-top: 0;
+  font-size: 4em;
+}
+.heading-subpage {
+  font-size: 2.5em;
+  margin-bottom: 0em;
 }
 
 footer {
@@ -34,15 +47,6 @@ footer {
   text-align: center;
   opacity: 50%;
   font-size: 0.75rem;
-}
-
-.home-heading {
-  margin-top: 0;
-  font-size: 4em;
-}
-
-.subpage-heading {
-  font-size: 2.5em;
 }
 
 .subpage-content {
@@ -94,18 +98,35 @@ footer {
 
 .radio-item {
   background-color: #db0000;
-  padding: 1em;
   border-radius: 1rem;
+  padding: 0 1em;
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+.radio-item > input[type=radio]::after {
+  width: 30px;
+  height: 30px;
+  top: -9px;
+  left: -7px;
+  border-radius: 50%;
+  position: relative;
+  content: "";
+  display: inline-block;
+  background-color: #971919;
+}
+.radio-item > input[type=radio]:checked::after {
+  background-color: white;
+  box-shadow: inset 0 0 0 8px #971919;
+  transition: background-color 150ms;
 }
 .radio-item > label {
+  text-align: left;
   font-size: 1.2em;
-  padding: 1em 5em;
   transition: 200ms ease;
-}
-.selected-choice {
-  background-color: white;
-  color: #971919;
-  animation: button-push 200ms linear;
+  width: 100%;
+  text-align: center;
+  padding: 1em;
 }
 
 @keyframes button-push {

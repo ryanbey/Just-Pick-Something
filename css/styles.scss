@@ -36,10 +36,26 @@ body {
     align-items: start;
 }
 
-.home-heading,
-.subpage-heading {
+.heading-home,
+.heading-subpage {
     font-family: "Kaushan Script";
     text-align: center;
+}
+
+.heading {
+    &-home,
+    &-subpage {
+        font-family: "Kaushan Script";
+        text-align: center;
+    }
+    &-home {
+        margin-top: 0;
+        font-size: 4em;
+    }
+    &-subpage {
+        font-size: 2.5em;
+        margin-bottom: 0em;
+    }
 }
 
 footer {
@@ -56,14 +72,6 @@ footer {
 ////
 //  Mobile First
 //////
-.home-heading {
-    margin-top: 0;
-    font-size: 4em;
-}
-
-.subpage-heading {
-    font-size: 2.5em;
-}
 
 .subpage-content {
     text-align: center;
@@ -114,22 +122,38 @@ footer {
 
 .radio-item {
     background-color: $red;
-    padding: 1em;
     border-radius: $border-radius;
-    & > label {
-        font-size: 1.2em;
-        padding: 1em 5em;
-        transition: 200ms ease;
-        & > input {
-            // display: none;
+    padding: 0 1em;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    & > input[type="radio"] {
+        // Custom bullet selector thing
+        &::after {
+            width: 30px;
+            height: 30px;
+            top: -9px;
+            left: -7px;
+            border-radius: 50%;
+            position: relative;
+            content: '';
+            display: inline-block;
+            background-color: $darkred;
+        }
+        &:checked::after {
+            background-color: $white;
+            box-shadow: inset 0 0 0 8px $darkred;
+            transition: background-color 150ms;
         }
     }
-}
-
-.selected-choice {
-    background-color: $white;
-    color: $darkred;
-    animation: button-push 200ms linear;
+    & > label {
+        text-align: left;
+        font-size: 1.2em;
+        transition: 200ms ease;
+        width: 100%;
+        text-align: center;
+        padding: 1em;
+    }
 }
 
 @keyframes button-push {
