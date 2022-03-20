@@ -142,30 +142,33 @@ footer {
         }
         &:checked::after {
             background-color: $white;
-            box-shadow: inset 0 0 0 8px $darkred;
-            transition: background-color 150ms;
+            box-shadow: inset 0 0 0 6px $darkred;
+            transition: background-color 200ms;
         }
     }
     & > label {
         text-align: left;
         font-size: 1.2em;
-        transition: 200ms ease;
         width: 100%;
         text-align: center;
         padding: 1em;
     }
 }
 
-@keyframes button-push {
-    0% { transform: scale(1); }
-    30% { transform: scale(.95); }
-    100% {transform: scale(1); }
-}
-
 .or {
     font-family: "Kaushan Script", sans-serif;
     font-size: 2em;
     margin: .25em;
+}
+
+.button-press {
+    animation: button 300ms linear;
+}
+
+@keyframes button {
+    0% { transform: scale(1); }
+    30% { transform: scale(.95); }
+    100% { transform: scale(1); }
 }
 
 ////
