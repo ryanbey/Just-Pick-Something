@@ -50,7 +50,7 @@ export function buildMatchups(jsonURL) {
         let brackets = data['brackets'];
         for (let i = 0; i < brackets.length; i++) {
             // If there is a match, set idex to corresponding bracket
-            if (pageTitle ==  brackets[i].name) {
+            if (pageTitle == brackets[i].name) {
                 bracketIndex = i;
             }
         }
@@ -58,7 +58,6 @@ export function buildMatchups(jsonURL) {
         let category = brackets[bracketIndex].list;
         console.log(category);
 
-        
         // Now that we have the correct category from the json, build the matchups HTML
         let matchupNum = 1;  // Used in loop for attribute naming
         for (let i = 0; i < category.length; i+=2) {
