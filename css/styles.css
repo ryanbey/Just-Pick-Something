@@ -49,6 +49,20 @@ footer {
   font-size: 0.75rem;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #db0000;
+}
+::-webkit-scrollbar-thumb {
+  background: #971919;
+  border-radius: 1em;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
 .subpage-content {
   text-align: center;
 }

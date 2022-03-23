@@ -69,6 +69,20 @@ footer {
     font-size: .75rem;
 }
 
+::-webkit-scrollbar {
+    width: 8px;
+    &-track {
+        background: $red;
+    }
+    &-thumb {
+        background: $darkred;
+        border-radius: 1em;
+        &:hover {
+            background: rgba($color: $white, $alpha: .5);
+        }
+    }
+}
+
 ////
 //  Mobile First
 //////
