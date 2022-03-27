@@ -1,4 +1,5 @@
 import { getJSON } from "./utils.js";
+import { createNextButtonListener } from "./utils.js";
 
 // Gets data from JSON file
 export function buildMainMenu(jsonURL) {
@@ -35,7 +36,7 @@ export function buildMainMenu(jsonURL) {
 }
 
 // Gets all the entries from a categorty and creates the matchups
-export function buildMatchups(jsonURL) {
+export function buildRound(jsonURL) {
     getJSON(jsonURL).then(data => {
         // Index for choosing correct bracket based on page title
         let bracketIndex = 0;
@@ -49,7 +50,7 @@ export function buildMatchups(jsonURL) {
         // Check if a category in json that matches page title
         let brackets = data['brackets'];
         for (let i = 0; i < brackets.length; i++) {
-            // If there is a match, set idex to corresponding bracket
+            // If there is a match, set index to corresponding bracket
             if (pageTitle == brackets[i].name) {
                 bracketIndex = i;
             }
@@ -113,20 +114,28 @@ export function buildMatchups(jsonURL) {
         nextButton.innerHTML = "Next Round<br><img class='down-arrow' src='../icons/icon-down-arrow.png'>";
         matchupList.appendChild(nextButton);
 
+        createNextButtonListener(nextButton);
     });
-
-    // Event listener for button press animation
-    // let allButtons = document.querySelectorAll('body');
-    // allButtons.forEach(button => {
-    //     button.addEventListener('click', () => {
-    //         console.log("hello");
-    //     })
-    // })
 }
 
-// Builds bracket on the page
-// export function buildBracket(jsonURL) {
-//     getJSON(jsonURL).then(data => {
-        
-//     });
-// }
+export function buildNextRound() {
+    let allRadios = document.getElementsByTagName('input');
+    let allLabels = document.getElementsByTagName('label');
+    let checkedRadios = [];  // Array for all checked options
+
+    for (let i = 0; i < allRadios.length; i++) {
+        // If the radio is checked
+        if (allRadios[i].checked) {
+            // Add that labels text to the checkedRadios array
+            checkedRadios.push(allLabels[i].innerHTML);
+        }
+    }
+    console.log(checkedRadios);
+
+    // Build actual content here
+
+    let roundHeading = document.createElement('h2');
+
+    roundHeading.innerHTML = "";
+
+}

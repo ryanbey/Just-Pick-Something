@@ -1,3 +1,5 @@
+import { buildNextRound } from './renderer.js';
+
 // Fetches premade JSON file
 export function getJSON(url) {
     return fetch(url)
@@ -12,4 +14,10 @@ export function getJSON(url) {
     .catch(function (error) {
         console.log(error);
     });
+}
+
+export function createNextButtonListener(nextButton) {
+    nextButton.addEventListener('click', () => {
+        buildNextRound();
+    })
 }
