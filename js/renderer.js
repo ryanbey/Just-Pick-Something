@@ -119,6 +119,7 @@ export function buildRound(jsonURL) {
 }
 
 export function buildNextRound() {
+    let nextButton = document.querySelector('.next-btn');
     let allRadios = document.getElementsByTagName('input');
     let allLabels = document.getElementsByTagName('label');
     let checkedRadios = [];  // Array for all checked options
@@ -132,10 +133,31 @@ export function buildNextRound() {
     }
     console.log(checkedRadios);
 
-    // Build actual content here
+    // Only continue if every matchup has a selection
+    if (checkedRadios.length === allRadios.length / 2) {
+        // Clear error message on next round button if it's there
+        if (nextButton.innerHTML.includes('Incomplete!')) {
+            nextButton.innerHTML = "Next Round<br><img class='down-arrow' src='../icons/icon-down-arrow.png'>";
+        }
 
-    let roundHeading = document.createElement('h2');
+        // Creating elements
+        let matchupList = document.querySelector('.matchup-list');
+        let roundHeading = document.createElement('h2');
+    
+        // Filling in content
+        roundHeading.innerHTML = "Fast Food | Round 2";
+    
+        // Apply CSS classes
+    
+        // Appending content
+        matchupList.appendChild(roundHeading);
+    }
+    
+    else {
+        if (!nextButton.innerHTML.includes('Incomplete!')) {
+            nextButton.innerHTML += "<br><span class='next-round-error-msg'>Incomplete!</span>";
+        }
+    }
 
-    roundHeading.innerHTML = "";
 
 }
