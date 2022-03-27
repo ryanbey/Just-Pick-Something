@@ -163,6 +163,33 @@ footer {
     transform: scale(1);
   }
 }
+.next-btn {
+  background-color: #971919;
+  border: 0;
+  color: white;
+  font-size: 1.2em;
+  padding: 1em;
+  border-radius: 1rem;
+  margin-bottom: 4em;
+  cursor: pointer;
+  transition: all 150ms;
+}
+.next-btn:hover {
+  transform: scale(1.1);
+}
+.next-btn:active {
+  background-color: white;
+  color: #971919;
+  transform: scale(1);
+}
+.next-btn > .down-arrow {
+  background: #db0000;
+  border-radius: 50%;
+  margin-top: 0.5em;
+  padding: 0.5em;
+  width: 2em;
+}
+
 @media (min-width: 45rem) {
   html {
     height: 100%;

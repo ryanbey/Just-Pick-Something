@@ -60,6 +60,8 @@ export function buildMatchups(jsonURL) {
 
         // Now that we have the correct category from the json, build the matchups HTML
         let matchupNum = 1;  // Used in loop for attribute naming
+        let matchupList = document.querySelector('.matchup-list');
+
         for (let i = 0; i < category.length; i+=2) {
             // Creating elements
             let matchupList = document.querySelector('.matchup-list');
@@ -104,6 +106,13 @@ export function buildMatchups(jsonURL) {
 
             matchupNum += 1;
         }
+
+        // Button at the bottom to start next round
+        let nextButton = document.createElement('button');
+        nextButton.classList.add('next-btn');
+        nextButton.innerHTML = "Next Round<br><img class='down-arrow' src='../icons/icon-down-arrow.png'>";
+        matchupList.appendChild(nextButton);
+
     });
 
     // Event listener for button press animation
