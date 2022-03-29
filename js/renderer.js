@@ -1,4 +1,4 @@
-import { getJSON } from "./utils.js";
+import { getCategoryTitle, getJSON } from "./utils.js";
 import { createNextButtonListener } from "./utils.js";
 
 // Gets data from JSON file
@@ -42,16 +42,14 @@ export function buildRound(jsonURL) {
         let bracketIndex = 0;
 
         // Get HTML page title
-        let fullTitle = document.getElementsByTagName('title')[0].innerHTML;
-        let pageTitle = fullTitle.substring(0, fullTitle.indexOf(' |'));
         let categoryHeading = document.querySelector('.heading-category');
-        categoryHeading.innerHTML = pageTitle;
+        categoryHeading.innerHTML = getCategoryTitle();
         
         // Check if a category in json that matches page title
         let brackets = data['brackets'];
         for (let i = 0; i < brackets.length; i++) {
             // If there is a match, set index to corresponding bracket
-            if (pageTitle == brackets[i].name) {
+            if (getCategoryTitle() == brackets[i].name) {
                 bracketIndex = i;
             }
         }
@@ -65,7 +63,6 @@ export function buildRound(jsonURL) {
 
         for (let i = 0; i < category.length; i+=2) {
             // Creating elements
-            let matchupList = document.querySelector('.matchup-list');
             let matchup = document.createElement('div');
             let radioItem1 = document.createElement('div');
             let radioInput1 = document.createElement('input');
@@ -139,18 +136,64 @@ export function buildNextRound() {
         if (nextButton.innerHTML.includes('Incomplete!')) {
             nextButton.innerHTML = "Next Round<br><img class='down-arrow' src='../icons/icon-down-arrow.png'>";
         }
-
-        // Creating elements
-        let matchupList = document.querySelector('.matchup-list');
+        
         let roundHeading = document.createElement('h2');
-    
-        // Filling in content
-        roundHeading.innerHTML = "Fast Food | Round 2";
-    
-        // Apply CSS classes
-    
-        // Appending content
+        roundHeading.innerHTML = getCategoryTitle() + " | Round 2";
+        let matchupList = document.querySelector('.matchup-list');
         matchupList.appendChild(roundHeading);
+        let matchupNum = 5;
+
+        for (let i = 0; i < checkedRadios.length; i+=2) {
+            // Creating elements
+            let matchup = document.createElement('div');
+            let radioItem1 = document.createElement('div');
+            let radioInput1 = document.createElement('input');
+            let radioLabel1 = document.createElement('label');
+            let orText = document.createElement('h3');
+            let radioItem2 = document.createElement('div');
+            let radioInput2 = document.createElement('input');
+            let radioLabel2 = document.createElement('label');
+
+            // Filling in content from JSON object
+            matchup.setAttribute('id', `matchup-${matchupNum}`);
+            radioInput1.setAttribute('type', 'radio');
+            radioInput1.setAttribute('id', `matchup${matchupNum}-1`);
+            radioInput1.setAttribute('name', `matchup-${matchupNum}`);
+            radioLabel1.setAttribute('for', `matchup${matchupNum}-1`);
+            radioLabel1.innerHTML = checkedRadios[i];
+            orText.innerHTML = 'OR';
+            radioInput2.setAttribute('type', 'radio');
+            radioInput2.setAttribute('id', `matchup${matchupNum}-2`);
+            radioInput2.setAttribute('name', `matchup-${matchupNum}`);
+            radioLabel2.setAttribute('for', `matchup${matchupNum}-2`);
+            radioLabel2.innerHTML = checkedRadios[i + 1];
+
+            // Applying CSS classes
+            matchup.classList.add('matchup');
+            radioItem1.classList.add('radio-item');
+            orText.classList.add('or');
+            radioItem2.classList.add('radio-item');
+
+            // Appending content
+            matchupList.appendChild(matchup);
+            matchup.appendChild(radioItem1);
+            radioItem1.appendChild(radioInput1);
+            radioItem1.appendChild(radioLabel1);
+            matchup.appendChild(orText);
+            matchup.appendChild(radioItem2);
+            radioItem2.appendChild(radioInput2);
+            radioItem2.appendChild(radioLabel2);
+            
+            matchupNum += 1;
+        }
+
+        // Button at the bottom to start next round
+        let nextButton2 = document.createElement('button');
+        nextButton2.classList.add('next-btn');
+        nextButton2.innerHTML = "Next Round<br><img class='down-arrow' src='../icons/icon-down-arrow.png'>";
+        matchupList.appendChild(nextButton2);
+
+        createNextButtonListener(nextButton2);
     }
     
     else {
@@ -158,6 +201,4 @@ export function buildNextRound() {
             nextButton.innerHTML += "<br><span class='next-round-error-msg'>Incomplete!</span>";
         }
     }
-
-
 }

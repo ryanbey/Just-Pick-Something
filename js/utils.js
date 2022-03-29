@@ -21,3 +21,9 @@ export function createNextButtonListener(nextButton) {
         buildNextRound();
     })
 }
+
+export function getCategoryTitle() {
+    let pageTitle = document.getElementsByTagName('title')[0].innerHTML;
+    let categoryTitle =  pageTitle.substring(0, pageTitle.indexOf(' |'));
+    return categoryTitle;
+}
