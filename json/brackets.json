@@ -21,14 +21,16 @@
             "name": "Movies",
             "link": "movies.html",
             "iconURL": "https://raw.githubusercontent.com/ryanbey/just-pick-something/main/icons/icon-movies.png",
-            "count": 2,
+            "count": 8,
             "list": [
-                {"name": "Phantom Menace"},
-                {"name": "Attack of the Clones"},
-                {"name": "Revenge of the Sith"},
-                {"name": "A New Hope"},
-                {"name": "The Empire Strikes Back"},
-                {"name": "Return of the Jedi"}
+                {"name": "Star Wars"},
+                {"name": "Batman"},
+                {"name": "Marvel"},
+                {"name": "Harry Potter"},
+                {"name": "Twilight"},
+                {"name": "Hunger Games"},
+                {"name": "Lord of the Rings"},
+                {"name": "Shrek"}
             ]
         },
 
