@@ -93,11 +93,6 @@ export function buildRound3() {
         if (nextButton.innerHTML.includes('Incomplete!')) {
             nextButton.innerHTML = "Next Round<br><img class='down-arrow' src='../icons/icon-down-arrow.png'>";
         }
-        
-        let roundHeading = document.createElement('h2');
-        roundHeading.innerHTML = utils.getCategoryTitle() + " | Round 3";
-        let matchupList = document.querySelector('.matchup-list');
-        matchupList.appendChild(roundHeading);
 
         // roundNum, matchupNum, array
         renderer.displayRound(3, 7, checkedRadios);

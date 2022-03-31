@@ -83,7 +83,7 @@ export function displayRound(roundNum, matchupNum, array) {
     // Button at the bottom to start next round
     let nextButton = document.createElement('button');
     nextButton.classList.add('next-btn');
-    nextButton.innerHTML = "Next Round<br><img class='down-arrow' src='../icons/icon-down-arrow.png'>";
+    nextButton.innerHTML = "Next Round<br><img class='down-arrow' src='https://raw.githubusercontent.com/ryanbey/just-pick-something/main/icons/icon-down-arrow.png'>";
     matchupList.appendChild(nextButton);
     
     switch (roundNum) {
@@ -111,7 +111,7 @@ export function displayWinner(winner) {
     let winnerText = document.createElement('p');
 
     // Filling in content from winner variable
-    winnerIcon.setAttribute('src', '../icons/icon-winner.png')
+    winnerIcon.setAttribute('src', 'https://raw.githubusercontent.com/ryanbey/just-pick-something/main/icons/icon-winner.png')
     winnerHeading.innerHTML = "Winner!"
     winnerText.innerHTML = winner;
 
