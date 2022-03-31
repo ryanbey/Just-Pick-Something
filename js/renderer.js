@@ -29,7 +29,10 @@ export function displayMainMenu(array) {
 }
 
 export function displayRound(roundNum, matchupNum, array) {
+    let roundHeading = document.createElement('h2');
+    roundHeading.innerHTML = utils.getCategoryTitle() + " | Round " + roundNum;
     let matchupList = document.querySelector('.matchup-list');
+    matchupList.appendChild(roundHeading);
 
     for (let i = 0; i < array.length; i += 2) {
         // Creating elements

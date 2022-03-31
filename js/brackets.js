@@ -14,15 +14,10 @@ export function buildMainMenu(jsonURL) {
 // Gets all the entries from a categorty and creates the matchups
 export function buildRound1(jsonURL) {
     utils.getJSON(jsonURL).then(data => {
-        // Index for choosing correct bracket based on page title
-        let bracketIndex = 0;
-
-        // Get HTML page title
-        let categoryHeading = document.querySelector('.heading-category');
-        categoryHeading.innerHTML = utils.getCategoryTitle();
         
         // Check if a category in json that matches page title
         let brackets = data['brackets'];
+        let bracketIndex = 0;
         for (let i = 0; i < brackets.length; i++) {
             // If there is a match, set index to corresponding bracket
             if (utils.getCategoryTitle() == brackets[i].name) {
@@ -30,6 +25,7 @@ export function buildRound1(jsonURL) {
             }
         }
 
+        // Build array from json
         let category = brackets[bracketIndex].list;
         console.log(category);
 
@@ -60,11 +56,6 @@ export function buildRound2() {
         if (nextButton.innerHTML.includes('Incomplete!')) {
             nextButton.innerHTML = "Next Round<br><img class='down-arrow' src='../icons/icon-down-arrow.png'>";
         }
-        
-        let roundHeading = document.createElement('h2');
-        roundHeading.innerHTML = utils.getCategoryTitle() + " | Round 2";
-        let matchupList = document.querySelector('.matchup-list');
-        matchupList.appendChild(roundHeading);
 
         // roundNum, matchupNum, array
         renderer.displayRound(2, 5, checkedRadios);
@@ -107,7 +98,6 @@ export function buildRound3() {
         roundHeading.innerHTML = utils.getCategoryTitle() + " | Round 3";
         let matchupList = document.querySelector('.matchup-list');
         matchupList.appendChild(roundHeading);
-        let matchupNum = 7;
 
         // roundNum, matchupNum, array
         renderer.displayRound(3, 7, checkedRadios);
