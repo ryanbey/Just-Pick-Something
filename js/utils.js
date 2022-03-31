@@ -1,4 +1,4 @@
-import { buildRound2, buildRound3, buildWinnerBox } from './brackets.js';
+import * as brackets from './brackets.js';
 
 // Fetches premade JSON file
 export function getJSON(url) {
@@ -24,21 +24,21 @@ export function getCategoryTitle() {
 
 export function createRound2ButtonListener(nextButton) {
     nextButton.addEventListener('click', () => {
-        buildRound2();
+        brackets.buildRound2();
         window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
     })
 }
 
 export function createRound3ButtonListener(nextButton) {
     nextButton.addEventListener('click', () => {
-        buildRound3();
+        brackets.buildRound3();
         window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
     })
 }
 
 export function createWinnerButtonListener(nextButton) {
     nextButton.addEventListener('click', () => {
-        buildWinnerBox();
+        brackets.buildWinnerBox();
         window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
     })
 }

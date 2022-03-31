@@ -1,5 +1,33 @@
 import * as utils from "./utils.js";
 
+export function displayMainMenu(array) {
+    for (let i = 0; i < array.length; i++) {
+        // Creating elements
+        let menu = document.querySelector('.menu')
+        let menuButton = document.createElement('a');
+        let menuIconBG = document.createElement('div');
+        let menuIcon = document.createElement('img');
+        let menuText = document.createElement('p');
+
+        // Filling in content from JSON object
+        menuButton.href = array[i].link;
+        menuIcon.src = array[i].iconURL;
+        menuText.innerText = array[i].name;
+        
+        // Applying CSS classes
+        menuButton.classList.add('menu-button');
+        menuIconBG.classList.add('menu-icon-bg');
+        menuIcon.classList.add('menu-icon');
+        menuText.classList.add('menu-text')
+        
+        // Appending content
+        menu.appendChild(menuButton);
+        menuButton.appendChild(menuIconBG);
+        menuIconBG.appendChild(menuIcon);
+        menuButton.appendChild(menuText);
+    }
+}
+
 export function displayRound(roundNum, matchupNum, array) {
     let matchupList = document.querySelector('.matchup-list');
 
@@ -69,4 +97,30 @@ export function displayRound(roundNum, matchupNum, array) {
             utils.createWinnerButtonListener(nextButton);
             break;
     }
+}
+
+export function displayWinner(winner) {
+    // Creating Elements
+    let matchupList = document.querySelector('.matchup-list');
+    let winnerDiv = document.createElement('div');
+    let winnerIcon = document.createElement('img');
+    let winnerHeading = document.createElement('h3');
+    let winnerText = document.createElement('p');
+
+    // Filling in content from winner variable
+    winnerIcon.setAttribute('src', '../icons/icon-winner.png')
+    winnerHeading.innerHTML = "Winner!"
+    winnerText.innerHTML = winner;
+
+    // Applying CSS classes
+    winnerDiv.classList.add('winner-box');
+    winnerIcon.classList.add('winner-icon');
+    winnerHeading.classList.add('winner-heading');
+    winnerText.classList.add('winner-text');
+
+    // Appending content
+    matchupList.appendChild(winnerDiv);
+    winnerDiv.appendChild(winnerIcon);
+    winnerDiv.appendChild(winnerHeading);
+    winnerDiv.appendChild(winnerText);
 }
