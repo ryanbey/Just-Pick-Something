@@ -1,3 +1,4 @@
+import { displayRound } from "./renderer.js";
 import { getCategoryTitle, getJSON, createRound2ButtonListener, createRound3ButtonListener, createWinnerButtonListener } from "./utils.js";
 
 // Gets data from JSON file
@@ -56,62 +57,8 @@ export function buildRound1(jsonURL) {
         let category = brackets[bracketIndex].list;
         console.log(category);
 
-        // Now that we have the correct category from the json, build the matchups HTML
-        let matchupNum = 1;  // Used in loop for attribute naming
-        let matchupList = document.querySelector('.matchup-list');
-
-        for (let i = 0; i < category.length; i += 2) {
-            // Creating elements
-            let matchup = document.createElement('div');
-            let radioItem1 = document.createElement('div');
-            let radioInput1 = document.createElement('input');
-            let radioLabel1 = document.createElement('label');
-            let orText = document.createElement('h3');
-            let radioItem2 = document.createElement('div');
-            let radioInput2 = document.createElement('input');
-            let radioLabel2 = document.createElement('label');
-
-            // Filling in content from JSON object
-            matchup.setAttribute('id', `matchup-${matchupNum}`);
-            radioInput1.setAttribute('type', 'radio');
-            radioInput1.setAttribute('id', `matchup${matchupNum}-1`);
-            radioInput1.setAttribute('name', `matchup-${matchupNum}`);
-            radioLabel1.setAttribute('for', `matchup${matchupNum}-1`);
-            radioLabel1.innerHTML = category[i].name;
-            orText.innerHTML = 'OR';
-            radioInput2.setAttribute('type', 'radio');
-            radioInput2.setAttribute('id', `matchup${matchupNum}-2`);
-            radioInput2.setAttribute('name', `matchup-${matchupNum}`);
-            radioLabel2.setAttribute('for', `matchup${matchupNum}-2`);
-            radioLabel2.innerHTML = category[i + 1].name;
-
-            // Applying CSS classes
-            matchup.classList.add('matchup');
-            radioItem1.classList.add('radio-item');
-            orText.classList.add('or');
-            radioItem2.classList.add('radio-item');
-
-            // Appending content
-            matchupList.appendChild(matchup);
-            matchup.appendChild(radioItem1);
-            radioItem1.appendChild(radioInput1);
-            radioItem1.appendChild(radioLabel1);
-            matchup.appendChild(orText);
-            matchup.appendChild(radioItem2);
-            radioItem2.appendChild(radioInput2);
-            radioItem2.appendChild(radioLabel2);
-
-            matchupNum += 1;
-        }
-
-        // Button at the bottom to start next round
-        let nextButton = document.createElement('button');
-        nextButton.classList.add('next-btn');
-        nextButton.setAttribute('id', 'btn-start-r2')
-        nextButton.innerHTML = "Next Round<br><img class='down-arrow' src='../icons/icon-down-arrow.png'>";
-        matchupList.appendChild(nextButton);
-
-        createRound2ButtonListener(nextButton);
+        // roundNum, matchupNum, array
+        displayRound(1, 1, category);
     });
 }
 
@@ -144,58 +91,8 @@ export function buildRound2() {
         matchupList.appendChild(roundHeading);
         let matchupNum = 5;
 
-        for (let i = 0; i < checkedRadios.length; i += 2) {
-            // Creating elements
-            let matchup = document.createElement('div');
-            let radioItem1 = document.createElement('div');
-            let radioInput1 = document.createElement('input');
-            let radioLabel1 = document.createElement('label');
-            let orText = document.createElement('h3');
-            let radioItem2 = document.createElement('div');
-            let radioInput2 = document.createElement('input');
-            let radioLabel2 = document.createElement('label');
-
-            // Filling in content from checkedRadios array
-            matchup.setAttribute('id', `matchup-${matchupNum}`);
-            radioInput1.setAttribute('type', 'radio');
-            radioInput1.setAttribute('id', `matchup${matchupNum}-1`);
-            radioInput1.setAttribute('name', `matchup-${matchupNum}`);
-            radioLabel1.setAttribute('for', `matchup${matchupNum}-1`);
-            radioLabel1.innerHTML = checkedRadios[i];
-            orText.innerHTML = 'OR';
-            radioInput2.setAttribute('type', 'radio');
-            radioInput2.setAttribute('id', `matchup${matchupNum}-2`);
-            radioInput2.setAttribute('name', `matchup-${matchupNum}`);
-            radioLabel2.setAttribute('for', `matchup${matchupNum}-2`);
-            radioLabel2.innerHTML = checkedRadios[i + 1];
-
-            // Applying CSS classes
-            matchup.classList.add('matchup');
-            radioItem1.classList.add('radio-item');
-            orText.classList.add('or');
-            radioItem2.classList.add('radio-item');
-
-            // Appending content
-            matchupList.appendChild(matchup);
-            matchup.appendChild(radioItem1);
-            radioItem1.appendChild(radioInput1);
-            radioItem1.appendChild(radioLabel1);
-            matchup.appendChild(orText);
-            matchup.appendChild(radioItem2);
-            radioItem2.appendChild(radioInput2);
-            radioItem2.appendChild(radioLabel2);
-            
-            matchupNum += 1;
-        }
-
-        // Button at the bottom to start next round
-        let nextButton2 = document.createElement('button');
-        nextButton2.classList.add('next-btn');
-        nextButton2.setAttribute('id', 'btn-start-r3')
-        nextButton2.innerHTML = "Next Round<br><img class='down-arrow' src='https://raw.githubusercontent.com/ryanbey/just-pick-something/main/icons/icon-down-arrow.png'>";
-        matchupList.appendChild(nextButton2);
-
-        createRound3ButtonListener(nextButton2);
+        // roundNum, matchupNum, array
+        displayRound(2, 5, checkedRadios);
     }
     
     else {
@@ -237,58 +134,8 @@ export function buildRound3() {
         matchupList.appendChild(roundHeading);
         let matchupNum = 7;
 
-        for (let i = 0; i < checkedRadios.length; i += 2) {
-            // Creating elements
-            let matchup = document.createElement('div');
-            let radioItem1 = document.createElement('div');
-            let radioInput1 = document.createElement('input');
-            let radioLabel1 = document.createElement('label');
-            let orText = document.createElement('h3');
-            let radioItem2 = document.createElement('div');
-            let radioInput2 = document.createElement('input');
-            let radioLabel2 = document.createElement('label');
-
-            // Filling in content from checkedRadios array
-            matchup.setAttribute('id', `matchup-${matchupNum}`);
-            radioInput1.setAttribute('type', 'radio');
-            radioInput1.setAttribute('id', `matchup${matchupNum}-1`);
-            radioInput1.setAttribute('name', `matchup-${matchupNum}`);
-            radioLabel1.setAttribute('for', `matchup${matchupNum}-1`);
-            radioLabel1.innerHTML = checkedRadios[i];
-            orText.innerHTML = 'OR';
-            radioInput2.setAttribute('type', 'radio');
-            radioInput2.setAttribute('id', `matchup${matchupNum}-2`);
-            radioInput2.setAttribute('name', `matchup-${matchupNum}`);
-            radioLabel2.setAttribute('for', `matchup${matchupNum}-2`);
-            radioLabel2.innerHTML = checkedRadios[i + 1];
-
-            // Applying CSS classes
-            matchup.classList.add('matchup');
-            radioItem1.classList.add('radio-item');
-            orText.classList.add('or');
-            radioItem2.classList.add('radio-item');
-
-            // Appending content
-            matchupList.appendChild(matchup);
-            matchup.appendChild(radioItem1);
-            radioItem1.appendChild(radioInput1);
-            radioItem1.appendChild(radioLabel1);
-            matchup.appendChild(orText);
-            matchup.appendChild(radioItem2);
-            radioItem2.appendChild(radioInput2);
-            radioItem2.appendChild(radioLabel2);
-            
-            matchupNum += 1;
-        }
-
-        // Button at the bottom to start next round
-        let nextButton3 = document.createElement('button');
-        nextButton3.classList.add('next-btn');
-        nextButton.setAttribute('id', 'btn-show-winner')
-        nextButton3.innerHTML = "Next Round<br><img class='down-arrow' src='https://raw.githubusercontent.com/ryanbey/just-pick-something/main/icons/icon-down-arrow.png'>";
-        matchupList.appendChild(nextButton3);
-
-        createWinnerButtonListener(nextButton3);
+        // roundNum, matchupNum, array
+        displayRound(3, 7, checkedRadios);
     }
     
     else {
