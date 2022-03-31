@@ -1,4 +1,4 @@
-import { buildNextRound } from './renderer.js';
+import { buildRound2, buildRound3, buildWinnerBox } from './brackets.js';
 
 // Fetches premade JSON file
 export function getJSON(url) {
@@ -16,14 +16,29 @@ export function getJSON(url) {
     });
 }
 
-export function createNextButtonListener(nextButton) {
-    nextButton.addEventListener('click', () => {
-        buildNextRound();
-    })
-}
-
 export function getCategoryTitle() {
     let pageTitle = document.getElementsByTagName('title')[0].innerHTML;
     let categoryTitle =  pageTitle.substring(0, pageTitle.indexOf(' |'));
     return categoryTitle;
+}
+
+export function createRound2ButtonListener(nextButton) {
+    nextButton.addEventListener('click', () => {
+        buildRound2();
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+    })
+}
+
+export function createRound3ButtonListener(nextButton) {
+    nextButton.addEventListener('click', () => {
+        buildRound3();
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+    })
+}
+
+export function createWinnerButtonListener(nextButton) {
+    nextButton.addEventListener('click', () => {
+        buildWinnerBox();
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+    })
 }

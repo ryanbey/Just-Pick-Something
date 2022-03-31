@@ -1,4 +1,4 @@
-import { buildMainMenu } from "./renderer.js";
+import { buildMainMenu } from "./brackets.js";
 
 const jsonURL = 'https://raw.githubusercontent.com/ryanbey/just-pick-something/main/json/brackets.json';
 
