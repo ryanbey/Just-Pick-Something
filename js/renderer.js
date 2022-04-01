@@ -107,23 +107,26 @@ export function displayWinner(winner) {
     let matchupList = document.querySelector('.matchup-list');
     let winnerDiv = document.createElement('div');
     let winnerIcon = document.createElement('img');
+    let winnerIconBG = document.createElement('div')
     let winnerHeading = document.createElement('h3');
     let winnerText = document.createElement('p');
 
     // Filling in content from winner variable
-    winnerIcon.setAttribute('src', 'https://raw.githubusercontent.com/ryanbey/just-pick-something/main/icons/icon-winner.png')
+    winnerIcon.setAttribute('src', 'https://raw.githubusercontent.com/ryanbey/just-pick-something/main/icons/icon-winner.png');
     winnerHeading.innerHTML = "Winner!"
     winnerText.innerHTML = winner;
 
     // Applying CSS classes
     winnerDiv.classList.add('winner-box');
     winnerIcon.classList.add('winner-icon');
+    winnerIconBG.classList.add('winner-icon-bg');
     winnerHeading.classList.add('winner-heading');
     winnerText.classList.add('winner-text');
 
     // Appending content
     matchupList.appendChild(winnerDiv);
-    winnerDiv.appendChild(winnerIcon);
+    winnerIconBG.appendChild(winnerIcon);
+    winnerDiv.appendChild(winnerIconBG);
     winnerDiv.appendChild(winnerHeading);
     winnerDiv.appendChild(winnerText);
 }
