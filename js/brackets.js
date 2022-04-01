@@ -6,7 +6,6 @@ export function buildMainMenu(jsonURL) {
     utils.getJSON(jsonURL).then(data => { 
         let brackets = data['brackets'];
         console.log("Data: ", brackets);
-
         renderer.displayMainMenu(brackets);
     });
 }
@@ -14,7 +13,6 @@ export function buildMainMenu(jsonURL) {
 // Gets all the entries from a categorty and creates the matchups
 export function buildRound1(jsonURL) {
     utils.getJSON(jsonURL).then(data => {
-        
         // Check if a category in json that matches page title
         let brackets = data['brackets'];
         let bracketIndex = 0;
@@ -24,11 +22,8 @@ export function buildRound1(jsonURL) {
                 bracketIndex = i;
             }
         }
-
         // Build array from json
         let category = brackets[bracketIndex].list;
-        console.log(category);
-
         // roundNum, matchupNum, array
         renderer.displayRound(1, 1, category);
     });
@@ -48,7 +43,6 @@ export function buildRound2() {
             checkedRadios.push(allLabels[i].innerHTML);
         }
     }
-    console.log(checkedRadios);
 
     // Only continue if every matchup has a selection
     if (checkedRadios.length === allRadios.length / 2) {
@@ -56,7 +50,6 @@ export function buildRound2() {
         if (nextButton.innerHTML.includes('Incomplete!')) {
             nextButton.innerHTML = "Next Round<br><img class='down-arrow' src='../icons/icon-down-arrow.png'>";
         }
-
         // roundNum, matchupNum, array
         renderer.displayRound(2, 5, checkedRadios);
     }
@@ -73,7 +66,6 @@ export function buildRound3() {
     let nextButton = document.querySelector('.next-btn');
     let allRadios = document.getElementsByTagName('input');
     let allLabels = document.getElementsByTagName('label');
-
     let checkedRadios = [];  // Array for all checked options
 
     // Start at index 8 to only grab content from round 2
@@ -84,7 +76,6 @@ export function buildRound3() {
             checkedRadios.push(allLabels[i].innerHTML);
         }
     }
-    console.log(checkedRadios);
 
     // Only continue if every matchup has a selection
     // At this point, checkedRadios only has 2 items out of 12 total on the page, hence the 6
@@ -93,7 +84,6 @@ export function buildRound3() {
         if (nextButton.innerHTML.includes('Incomplete!')) {
             nextButton.innerHTML = "Next Round<br><img class='down-arrow' src='../icons/icon-down-arrow.png'>";
         }
-
         // roundNum, matchupNum, array
         renderer.displayRound(3, 7, checkedRadios);
     }
@@ -118,11 +108,8 @@ export function buildWinnerBox() {
             checkedRadios.push(allLabels[i].innerHTML);
         }
     }
-    console.log(checkedRadios);
-
+    
     let winnerIndex = checkedRadios.length - 1;
     let winner = checkedRadios[winnerIndex];
-    console.log(winner);
-
     renderer.displayWinner(winner);
 }
