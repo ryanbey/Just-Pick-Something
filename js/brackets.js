@@ -22,12 +22,9 @@ export function buildRound1(jsonURL) {
                 bracketIndex = i;
             }
         }
-        // Build array from json
-        let category = brackets[bracketIndex].list;
-        // Shuffle options
-        category = utils.shuffleArray(category);
-        // roundNum, matchupNum, array
-        renderer.displayRound(1, 1, category);
+        let category = brackets[bracketIndex].list;  // Build array from json
+        category = utils.shuffleArray(category);     // Shuffle options
+        renderer.displayRound(1, 1, category);       // roundNum, matchupNum, array
     });
 }
 
@@ -52,8 +49,7 @@ export function buildRound2() {
         if (nextButton.innerHTML.includes('Incomplete!')) {
             nextButton.innerHTML = "Next Round<br><img class='down-arrow' src='../icons/icon-down-arrow.png'>";
         }
-        // roundNum, matchupNum, array
-        renderer.displayRound(2, 5, checkedRadios);
+        renderer.displayRound(2, 5, checkedRadios);  // roundNum, matchupNum, array
     }
     
     else {
@@ -86,8 +82,7 @@ export function buildRound3() {
         if (nextButton.innerHTML.includes('Incomplete!')) {
             nextButton.innerHTML = "Next Round<br><img class='down-arrow' src='../icons/icon-down-arrow.png'>";
         }
-        // roundNum, matchupNum, array
-        renderer.displayRound(3, 7, checkedRadios);
+        renderer.displayRound(3, 7, checkedRadios);  // roundNum, matchupNum, array
     }
     
     else {
