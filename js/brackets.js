@@ -24,6 +24,8 @@ export function buildRound1(jsonURL) {
         }
         // Build array from json
         let category = brackets[bracketIndex].list;
+        // Shuffle options
+        category = utils.shuffleArray(category);
         // roundNum, matchupNum, array
         renderer.displayRound(1, 1, category);
     });
@@ -95,6 +97,7 @@ export function buildRound3() {
     }
 }
 
+// Build the box for the winning choice
 export function buildWinnerBox() {
     // Get last checked radio item (Final checked == winner)
     let allRadios = document.getElementsByTagName('input');
@@ -108,7 +111,7 @@ export function buildWinnerBox() {
             checkedRadios.push(allLabels[i].innerHTML);
         }
     }
-    
+
     let winnerIndex = checkedRadios.length - 1;
     let winner = checkedRadios[winnerIndex];
     renderer.displayWinner(winner);

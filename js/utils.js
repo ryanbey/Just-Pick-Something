@@ -22,6 +22,12 @@ export function getCategoryTitle() {
     return categoryTitle;
 }
 
+// Shuffles arrays for building initial brackets to randomize matchups
+export function shuffleArray(array) {
+    return array.sort(() => Math.random() - 0.5);
+}
+
+// Creates event listener for the next button in round 1
 export function createRound2ButtonListener(nextButton) {
     nextButton.addEventListener('click', () => {
         brackets.buildRound2();
@@ -29,6 +35,7 @@ export function createRound2ButtonListener(nextButton) {
     })
 }
 
+// Creates event listener for the next button in round 2
 export function createRound3ButtonListener(nextButton) {
     nextButton.addEventListener('click', () => {
         brackets.buildRound3();
@@ -36,6 +43,7 @@ export function createRound3ButtonListener(nextButton) {
     })
 }
 
+// Creates event listener for the next button in round 3
 export function createWinnerButtonListener(nextButton) {
     nextButton.addEventListener('click', () => {
         brackets.buildWinnerBox();

@@ -1,5 +1,6 @@
 import * as utils from "./utils.js";
 
+// Renders content for Main Menu
 export function displayMainMenu(array) {
     for (let i = 0; i < array.length; i++) {
         // Creating elements
@@ -28,6 +29,7 @@ export function displayMainMenu(array) {
     }
 }
 
+// Renders content for each round
 export function displayRound(roundNum, matchupNum, array) {
     let roundHeading = document.createElement('h2');
     roundHeading.innerHTML = utils.getCategoryTitle() + " | Round " + roundNum;
@@ -102,6 +104,7 @@ export function displayRound(roundNum, matchupNum, array) {
     }
 }
 
+// Renders content for winner box
 export function displayWinner(winner) {
     // Creating Elements
     let matchupList = document.querySelector('.matchup-list');
