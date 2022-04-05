@@ -30,18 +30,10 @@ export function buildRound1(jsonURL) {
 
 // Build round 2 based on all checked radio inputs (just round 1 at this point)
 export function buildRound2() {
-    let nextButton = document.querySelector('.next-btn');
+    let nextButton = document.querySelector('#btn-start-r2');
     let allRadios = document.getElementsByTagName('input');
     let allLabels = document.getElementsByTagName('label');
-    let checkedRadios = [];  // Array for all checked options
-
-    for (let i = 0; i < allRadios.length; i++) {
-        // If the radio is checked
-        if (allRadios[i].checked) {
-            // Add that labels text to the checkedRadios array
-            checkedRadios.push(allLabels[i].innerHTML);
-        }
-    }
+    let checkedRadios = utils.getCheckedRadios(0, allRadios, allLabels);
 
     // Only continue if every matchup has a selection
     if (checkedRadios.length === allRadios.length / 2) {
@@ -50,6 +42,7 @@ export function buildRound2() {
             nextButton.innerHTML = "Next Round<br><img class='down-arrow' src='../icons/icon-down-arrow.png'>";
         }
         renderer.displayRound(2, 5, checkedRadios);  // roundNum, matchupNum, array
+        renderer.hideButton(nextButton);
     }
     
     else {
@@ -61,19 +54,10 @@ export function buildRound2() {
 
 // Build round 3 based on all checked radio inputs from round 2 only
 export function buildRound3() {
-    let nextButton = document.querySelector('.next-btn');
+    let nextButton = document.querySelector('#btn-start-r3');
     let allRadios = document.getElementsByTagName('input');
     let allLabels = document.getElementsByTagName('label');
-    let checkedRadios = [];  // Array for all checked options
-
-    // Start at index 8 to only grab content from round 2
-    for (let i = 8; i < allRadios.length; i++) {
-        // If the radio is checked
-        if (allRadios[i].checked) {
-            // Add that labels text to the checkedRadios array
-            checkedRadios.push(allLabels[i].innerHTML);
-        }
-    }
+    let checkedRadios = utils.getCheckedRadios(8, allRadios, allLabels);  // index 8 to only get checked radios from r2
 
     // Only continue if every matchup has a selection
     // At this point, checkedRadios only has 2 items out of 12 total on the page, hence the 6
@@ -83,6 +67,7 @@ export function buildRound3() {
             nextButton.innerHTML = "Next Round<br><img class='down-arrow' src='../icons/icon-down-arrow.png'>";
         }
         renderer.displayRound(3, 7, checkedRadios);  // roundNum, matchupNum, array
+        renderer.hideButton(nextButton);
     }
     
     else {
@@ -95,19 +80,26 @@ export function buildRound3() {
 // Build the box for the winning choice
 export function buildWinnerBox() {
     // Get last checked radio item (Final checked == winner)
+    let nextButton = document.querySelector('#btn-show-winner');
     let allRadios = document.getElementsByTagName('input');
     let allLabels = document.getElementsByTagName('label');
-    let checkedRadios = [];  // Array for all checked options
-
-    for (let i = 0; i < allRadios.length; i++) {
-        // If the radio is checked
-        if (allRadios[i].checked) {
-            // Add that labels text to the checkedRadios array
-            checkedRadios.push(allLabels[i].innerHTML);
-        }
-    }
-
+    let checkedRadios = utils.getCheckedRadios(0, allRadios, allLabels);
     let winnerIndex = checkedRadios.length - 1;
     let winner = checkedRadios[winnerIndex];
-    renderer.displayWinner(winner);
+
+    // Make sure there are no empty rounds
+    if (checkedRadios.length === allRadios.length / 2) {
+        // Clear error message on next round button if it's there
+        if (nextButton.innerHTML.includes('Incomplete!')) {
+            nextButton.innerHTML = "Next Round<br><img class='down-arrow' src='../icons/icon-down-arrow.png'>";
+        }
+        renderer.displayWinner(winner);
+        renderer.hideButton(nextButton);
+    }
+
+    else {
+        if (!nextButton.innerHTML.includes('Incomplete!')) {
+            nextButton.innerHTML += "<br><span class='next-round-error-msg'>Incomplete!</span>";
+        }
+    }
 }

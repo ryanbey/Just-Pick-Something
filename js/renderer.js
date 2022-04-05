@@ -133,3 +133,9 @@ export function displayWinner(winner) {
     winnerDiv.appendChild(winnerHeading);
     winnerDiv.appendChild(winnerText);
 }
+
+// Removes button from the page. Technically would remove anything from the page, but I'm using it for buttons. Science.
+export function hideButton (button) {
+    button.innerHTML = '';  // Clear content
+    button.classList.add('hidden');
+}

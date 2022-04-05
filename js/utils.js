@@ -22,6 +22,19 @@ export function getCategoryTitle() {
     return categoryTitle;
 }
 
+// Gets all checked radio inputs on page starting from specified index
+export function getCheckedRadios(index, allRadios, allLabels) {
+    let checkedRadios = [];  // Array for all checked options
+    for (let i = index; i < allRadios.length; i++) {
+        // If the radio is checked
+        if (allRadios[i].checked) {
+            // Add that labels text to the checkedRadios array
+            checkedRadios.push(allLabels[i].innerHTML);
+        }
+    }
+    return checkedRadios;
+}
+
 // Shuffles arrays for building initial brackets to randomize matchups
 export function shuffleArray(array) {
     return array.sort(() => Math.random() - 0.5);
