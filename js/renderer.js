@@ -113,11 +113,20 @@ export function displayWinner(winner) {
     let winnerIconBG = document.createElement('div')
     let winnerHeading = document.createElement('h3');
     let winnerText = document.createElement('p');
+    let buttonsFlex = document.createElement('div');
+    let restartBtn = document.createElement('div');
+    let menuBtn = document.createElement('div');
 
     // Filling in content from winner variable
     winnerIcon.setAttribute('src', 'https://raw.githubusercontent.com/ryanbey/just-pick-something/main/icons/icon-winner.png');
     winnerHeading.innerHTML = "Winner!"
     winnerText.innerHTML = winner;
+    restartBtn.innerHTML = "Restart";
+    menuBtn.innerHTML = "Main Menu";
+
+    // Create event listeners
+    utils.createRestartListener(restartBtn);
+    utils.createMenuListener(menuBtn);
 
     // Applying CSS classes
     winnerDiv.classList.add('winner-box');
@@ -125,6 +134,9 @@ export function displayWinner(winner) {
     winnerIconBG.classList.add('winner-icon-bg');
     winnerHeading.classList.add('winner-heading');
     winnerText.classList.add('winner-text');
+    buttonsFlex.classList.add('winner-options');
+    restartBtn.classList.add('winner-button');
+    menuBtn.classList.add('winner-button');
 
     // Appending content
     matchupList.appendChild(winnerDiv);
@@ -132,10 +144,13 @@ export function displayWinner(winner) {
     winnerDiv.appendChild(winnerIconBG);
     winnerDiv.appendChild(winnerHeading);
     winnerDiv.appendChild(winnerText);
+    buttonsFlex.appendChild(restartBtn);
+    buttonsFlex.appendChild(menuBtn);
+    winnerDiv.appendChild(buttonsFlex);
 }
 
 // Removes button from the page. Technically would remove anything from the page, but I'm using it for buttons. Science.
-export function hideButton (button) {
+export function hideElement(button) {
     button.innerHTML = '';  // Clear content
     button.classList.add('hidden');
 }

@@ -63,3 +63,18 @@ export function createWinnerButtonListener(nextButton) {
         window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
     })
 }
+
+// Creates event listener for the restart button at the end of the bracket
+export function createRestartListener(button) {
+    button.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+        setTimeout(() => {  location.reload(); }, 750);
+    })
+}
+
+// Creates event listener for the main menu button at the end of the bracket
+export function createMenuListener(button) {
+    button.addEventListener('click', () => {
+        location.href = "https://ryanbey.github.io/just-pick-something/index.html";
+    })
+}

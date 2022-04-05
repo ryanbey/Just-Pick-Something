@@ -42,7 +42,7 @@ export function buildRound2() {
             nextButton.innerHTML = "Next Round<br><img class='down-arrow' src='../icons/icon-down-arrow.png'>";
         }
         renderer.displayRound(2, 5, checkedRadios);  // roundNum, matchupNum, array
-        renderer.hideButton(nextButton);
+        renderer.hideElement(nextButton);
     }
     
     else {
@@ -67,7 +67,7 @@ export function buildRound3() {
             nextButton.innerHTML = "Next Round<br><img class='down-arrow' src='../icons/icon-down-arrow.png'>";
         }
         renderer.displayRound(3, 7, checkedRadios);  // roundNum, matchupNum, array
-        renderer.hideButton(nextButton);
+        renderer.hideElement(nextButton);
     }
     
     else {
@@ -94,7 +94,7 @@ export function buildWinnerBox() {
             nextButton.innerHTML = "Next Round<br><img class='down-arrow' src='../icons/icon-down-arrow.png'>";
         }
         renderer.displayWinner(winner);
-        renderer.hideButton(nextButton);
+        renderer.hideElement(nextButton);
     }
 
     else {

@@ -12,7 +12,7 @@ $white: white;
 
 // Variables
 $desktop-br: 45rem;
-$border-radius: 1rem;
+$border-radius: .9rem;
 
 ////
 //  General
@@ -225,10 +225,9 @@ footer {
         align-items: center;
         background-color: $darkred;
         border-radius: $border-radius;
-        margin-bottom: 2em;
         padding: 1rem;
         text-align: center;
-        margin-bottom: 5em;
+        margin: 5em 0;
         & > p {
             margin-top: 0;
         }
@@ -253,6 +252,23 @@ footer {
     &-text {
         font-size: 1.5em;
     }
+    &-buttons {
+        color: pink;
+    }
+}
+
+.winner-options {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.winner-button {
+    width: 40%;
+    background-color: $red;
+    font-size: 1.1em;
+    padding: .75em;
+    border-radius: $border-radius;
 }
 
 .hidden {
