@@ -246,6 +246,7 @@ footer {
   font-size: 1.1em;
   padding: 0.75em;
   border-radius: 0.9rem;
+  cursor: pointer;
 }
 
 .hidden {
@@ -254,7 +255,7 @@ footer {
   margin: 0;
 }
 
-@media (min-width: 45rem) {
+@media (min-width: 48rem) {
   html {
     height: 100%;
     display: flex;
@@ -299,6 +300,48 @@ footer {
     font-size: 1.5em;
     margin-top: 1em;
     margin-bottom: 0;
+  }
+
+  .subpage-body {
+    width: 100%;
+  }
+  .subpage-content {
+    width: 80%;
+    max-width: 50rem;
+  }
+
+  .matchup {
+    display: flex;
+    justify-content: space-between;
+  }
+  .matchup-list {
+    width: 100%;
+  }
+
+  .or {
+    margin: 0;
+    margin-right: 1.3em;
+    margin-left: 1em;
+    position: relative;
+    top: 5px;
+  }
+
+  .winner-box {
+    max-width: 25rem;
+    margin: 5rem auto;
+  }
+  .winner-button {
+    transition: all 200ms;
+  }
+  .winner-button:hover {
+    transform: scale(1.05);
+  }
+
+  .radio-item {
+    width: 100%;
+  }
+  .radio-item, .radio-item > label, .radio-item > input {
+    cursor: pointer;
   }
 }
 

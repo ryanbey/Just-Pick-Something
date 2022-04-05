@@ -11,7 +11,7 @@ $offw: #f5eded;
 $white: white;
 
 // Variables
-$desktop-br: 45rem;
+$desktop-br: 48rem;
 $border-radius: .9rem;
 
 ////
@@ -269,6 +269,7 @@ footer {
     font-size: 1.1em;
     padding: .75em;
     border-radius: $border-radius;
+    cursor: pointer;
 }
 
 .hidden {
@@ -288,6 +289,7 @@ footer {
         align-items: center;
     }
 
+    // Main Menu
     .home-heading {
         font-size: 5em;
         margin-top: 0;
@@ -322,6 +324,53 @@ footer {
             font-size: 1.5em;
             margin-top: 1em;
             margin-bottom: 0;
+        }
+    }
+
+    // Subpages
+    .subpage {
+        &-body {
+            width: 100%;
+        }
+        &-content {
+            width: 80%;
+            max-width: 50rem;
+        }
+    }
+
+    .matchup {
+        display: flex;
+        justify-content: space-between;
+        &-list {
+            width: 100%;
+        }
+    }
+
+    .or {
+        margin: 0;
+        margin-right: 1.3em;
+        margin-left: 1em;
+        position: relative;
+        top: 5px;
+    }
+    
+    .winner {
+        &-box {
+            max-width: 25rem;
+            margin: 5rem auto;
+        }
+        &-button {
+            transition: all 200ms;
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    .radio-item {
+        width: 100%;
+        &, & > label, & > input {
+            cursor: pointer;
         }
     }
 }
