@@ -37,14 +37,9 @@ export function buildRound2() {
 
     // Only continue if every matchup has a selection
     if (checkedRadios.length === allRadios.length / 2) {
-        // Clear error message on next round button if it's there
-        if (nextButton.innerHTML.includes('Incomplete!')) {
-            nextButton.innerHTML = "Next Round<br><img class='down-arrow' src='../icons/icon-down-arrow.png'>";
-        }
         renderer.displayRound(2, 5, checkedRadios);  // roundNum, matchupNum, array
         renderer.hideElement(nextButton);
     }
-    
     else {
         if (!nextButton.innerHTML.includes('Incomplete!')) {
             nextButton.innerHTML += "<br><span class='next-round-error-msg'>Incomplete!</span>";
@@ -62,14 +57,9 @@ export function buildRound3() {
     // Only continue if every matchup has a selection
     // At this point, checkedRadios only has 2 items out of 12 total on the page, hence the 6
     if (checkedRadios.length === allRadios.length / 6) {
-        // Clear error message on next round button if it's there
-        if (nextButton.innerHTML.includes('Incomplete!')) {
-            nextButton.innerHTML = "Next Round<br><img class='down-arrow' src='../icons/icon-down-arrow.png'>";
-        }
         renderer.displayRound(3, 7, checkedRadios);  // roundNum, matchupNum, array
         renderer.hideElement(nextButton);
     }
-    
     else {
         if (!nextButton.innerHTML.includes('Incomplete!')) {
             nextButton.innerHTML += "<br><span class='next-round-error-msg'>Incomplete!</span>";
@@ -89,14 +79,9 @@ export function buildWinnerBox() {
 
     // Make sure there are no empty rounds
     if (checkedRadios.length === allRadios.length / 2) {
-        // Clear error message on next round button if it's there
-        if (nextButton.innerHTML.includes('Incomplete!')) {
-            nextButton.innerHTML = "Next Round<br><img class='down-arrow' src='../icons/icon-down-arrow.png'>";
-        }
         renderer.displayWinner(winner);
         renderer.hideElement(nextButton);
     }
-
     else {
         if (!nextButton.innerHTML.includes('Incomplete!')) {
             nextButton.innerHTML += "<br><span class='next-round-error-msg'>Incomplete!</span>";
