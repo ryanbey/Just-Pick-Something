@@ -1,4 +1,4 @@
-# just-pick-something
+# Just Pick Something
 Web app that places a list of choices in a tournament style bracket to help you and your friends and family make your next difficult choice.
 
 ## Future Features
